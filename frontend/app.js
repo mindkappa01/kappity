@@ -29,7 +29,7 @@ form.addEventListener("submit", async (e) => {
   setActiveButton("initial");
 
   try {
-    const response = await fetch("http://localhost:3000/interpretar", {
+    const response = await fetch("https://kappity.onrender.com", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ descricao })
