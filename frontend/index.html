@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kappitty</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kappitty — Entendendo sonhos.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- LETREIRO / TOPO -->
+  <header class="app-header">
+  <div class="sky">
+    <span class="brand-emoji">🌙</span>
+    <h1 class="brand-title">Kappity</h1>
+    <p class="brand-subtitle"><em>Entendendo sonhos…</em></p>
+  </div>
+</header>
+
+  <section class="intro-text">
+  <p>
+    Relate seu sonho com calma, do jeito que lembrar.
+    <br />
+    Não é necessário interpretar.
+  </p>
+</section>
+
+  <main class="app-main">
+
+    <!-- ENTRADA DO SONHO -->
+    <section class="dream-input">
+      <form id="dreamForm">
+        <label for="descricao">
+          Descreva seu sonho como lembrar
+        </label>
+
+        <textarea
+          id="descricao"
+          placeholder="Não precisa fazer sentido. Escreva do seu jeito."
+          rows="4"
+          required
+        ></textarea>
+
+        <button type="submit">
+          Interpretar sonho
+        </button>
+      </form>
+    </section>
+
+    <!-- RESULTADO -->
+    <section class="dream-result">
+
+      <!-- SELETOR DE VISÕES -->
+      <nav class="lens-selector">
+        <button data-lens="initial">🌙 Leitura Inicial</button>
+        <button data-lens="simbolica">🧩 Simbólica</button>
+        <button data-lens="psicologica">🧠 Psicológica</button>
+        <button data-lens="cientifica">🔬 Científica</button>
+      </nav>
+
+      <!-- CARD DO RELATÓRIO -->
+      <article id="reportCard" class="report-card">
+        <h2 id="reportTitle"></h2>
+        <div id="reportContent"></div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+
+  <footer class="app-footer">
+  <p>
+    Kappity é uma ferramenta de observação de sonhos.
+    Não substitui acompanhamento clínico ou terapêutico.
+  </p>
+  <p class="copyright">
+    Um produto MindKappa · ©
+  </p>
+</footer>
+</body>
+</html>

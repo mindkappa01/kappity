@@ -1,0 +1,354 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  background: #0b1220;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* TOPO */
+.app-header {
+  padding: 24px 16px 12px;
+}
+
+.brand {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-emoji {
+  font-size: 1.8rem;
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.brand-text p {
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+/* LAYOUT */
+.app-main {
+  flex: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+/* FORM */
+.dream-input {
+  margin-top: 16px;
+}
+
+.dream-input label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.dream-input textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: #e5e7eb;
+  resize: vertical;
+}
+
+.dream-input button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 14px;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.dream-input button:active {
+  transform: scale(0.98);
+}
+
+/* RESULTADO */
+.dream-result {
+  margin-top: 24px;
+}
+
+/* BOTÕES DE LENTE */
+.lens-selector {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.lens-selector button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #334155;
+  background: transparent;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* CARD */
+.report-card {
+  display: none;
+  padding: 20px;
+  border-radius: 16px;
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+.report-card.visible {
+  display: block;
+}
+
+.report-card h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+#reportContent {
+  white-space: pre-line;
+  font-size: 0.95rem;
+}
+
+/* ===============================
+   AURAS VISUAIS POR LENTE
+================================ */
+
+/* Base do card (neutro) */
+.report-card {
+  border: 1px solid #334155;
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+/* 🌙 Leitura Inicial */
+.report-card.lens-intro {
+  border-color: #60a5fa;
+  box-shadow: 0 0 22px rgba(96, 165, 250, 0.25);
+}
+
+/* 🧩 Simbólica */
+.report-card.lens-symbolic {
+  border-color: #c084fc;
+  box-shadow: 0 0 26px rgba(192, 132, 252, 0.28);
+}
+
+/* 🧠 Psicológica */
+.report-card.lens-psych {
+  border-color: #34d399;
+  box-shadow: 0 0 26px rgba(52, 211, 153, 0.28);
+}
+
+/* 🔬 Científica */
+.report-card.lens-science {
+  border-color: #94a3b8;
+  box-shadow: 0 0 22px rgba(148, 163, 184, 0.25);
+}
+
+/* ===============================
+   AURAS NOS BOTÕES DE LENTE
+================================ */
+
+.lens-selector button {
+  position: relative;
+  transition: 
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* 🌙 Leitura Inicial */
+.lens-selector button[data-lens="initial"] {
+  border-color: #60a5fa;
+}
+.lens-selector button[data-lens="initial"].active {
+  box-shadow: 0 0 14px rgba(96, 165, 250, 0.35);
+  background-color: rgba(96, 165, 250, 0.08);
+}
+
+/* 🧩 Simbólica */
+.lens-selector button[data-lens="simbolica"] {
+  border-color: #c084fc;
+}
+.lens-selector button[data-lens="simbolica"].active {
+  box-shadow: 0 0 16px rgba(192, 132, 252, 0.35);
+  background-color: rgba(192, 132, 252, 0.08);
+}
+
+/* 🧠 Psicológica */
+.lens-selector button[data-lens="psicologica"] {
+  border-color: #34d399;
+}
+.lens-selector button[data-lens="psicologica"].active {
+  box-shadow: 0 0 16px rgba(52, 211, 153, 0.35);
+  background-color: rgba(52, 211, 153, 0.08);
+}
+
+/* 🔬 Científica */
+.lens-selector button[data-lens="cientifica"] {
+  border-color: #94a3b8;
+}
+.lens-selector button[data-lens="cientifica"].active {
+  box-shadow: 0 0 14px rgba(148, 163, 184, 0.35);
+  background-color: rgba(148, 163, 184, 0.08);
+}
+
+/* ===============================
+   LUA FLUTUANTE (KAPPITY)
+================================ */
+
+.brand-emoji {
+  display: inline-block;
+  animation: moonFloat 6s ease-in-out infinite;
+}
+
+@keyframes moonFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   TEXTOS DE CONTEXTO
+================================ */
+
+.subtitle {
+  margin: 2px 0 0;
+  font-size: 0.95rem;
+  color: #cbd5f5;
+}
+
+.signature {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* TEXTO INTRO */
+.intro-text {
+  max-width: 720px;
+  margin: 12px auto 0;
+  padding: 0 16px;
+  font-size: 0.9rem;
+  color: #cbd5f5;
+}
+
+/* RODAPÉ */
+.app-footer {
+  padding: 32px 16px 40px;
+  border-top: 1px solid #334155;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.app-footer p {
+  margin: 6px 0;
+}
+
+/* ===============================
+   TOPO — CÉU NOTURNO
+================================ */
+
+.app-header {
+  padding: 48px 16px 32px;
+  text-align: center;
+}
+
+.sky {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.brand-title {
+  margin: 12px 0 4px;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.brand-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.brand-subtitle em {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* ===============================
+   DEGRADÊ SUTIL DO TOPO
+   Céu → horizonte noturno
+================================ */
+
+.app-header {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.015) 35%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* ===============================
+   ESTRELAS SUTIS — CÉU NOTURNO
+================================ */
+
+.app-header {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Camada de estrelas */
+.app-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.35), transparent),
+    radial-gradient(1px 1px at 50% 20%, rgba(255,255,255,0.25), transparent),
+    radial-gradient(1px 1px at 70% 40%, rgba(255,255,255,0.3), transparent),
+    radial-gradient(1px 1px at 30% 60%, rgba(255,255,255,0.2), transparent),
+    radial-gradient(1px 1px at 80% 65%, rgba(255,255,255,0.28), transparent),
+    radial-gradient(1px 1px at 60% 80%, rgba(255,255,255,0.22), transparent);
+  animation: starsTwinkle 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes starsTwinkle {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.6; }
+}
